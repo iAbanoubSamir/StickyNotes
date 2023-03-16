@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.sticky.notes.feature_note.data.local.NoteDatabase
 import com.sticky.notes.feature_note.data.repository.NoteRepositoryImpl
 import com.sticky.notes.feature_note.domain.repository.NoteRepository
+import com.sticky.notes.feature_note.domain.use_case.AddNoteUseCase
 import com.sticky.notes.feature_note.domain.use_case.DeleteNoteUseCase
 import com.sticky.notes.feature_note.domain.use_case.GetNotesUseCase
 import com.sticky.notes.feature_note.domain.use_case.NoteUseCases
@@ -39,7 +40,8 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
             getNotes = GetNotesUseCase(repository),
-            deleteNote = DeleteNoteUseCase(repository)
+            deleteNote = DeleteNoteUseCase(repository),
+            addNote = AddNoteUseCase(repository)
         )
     }
 
