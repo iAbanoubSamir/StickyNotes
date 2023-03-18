@@ -37,22 +37,24 @@ fun OrderSection(
                 onSelect = { onOrderChange(NoteOrder.Color(noteOrder.orderType)) }
             )
         }
-
-        Spacer(modifier = Modifier.width(16.dp))
-
+        Spacer(modifier = Modifier.height(16.dp))
         Row(
             modifier = Modifier.fillMaxWidth()
         ) {
             DefaultRadioButton(
                 text = "Ascending",
                 selected = noteOrder.orderType is OrderType.ASC,
-                onSelect = { noteOrder.copy(orderType = OrderType.ASC) }
+                onSelect = {
+                    onOrderChange(noteOrder.copy(OrderType.ASC))
+                }
             )
             Spacer(modifier = Modifier.width(8.dp))
             DefaultRadioButton(
                 text = "Descending",
                 selected = noteOrder.orderType is OrderType.DESC,
-                onSelect = { noteOrder.copy(orderType = OrderType.DESC) }
+                onSelect = {
+                    onOrderChange(noteOrder.copy(OrderType.DESC))
+                }
             )
         }
     }
