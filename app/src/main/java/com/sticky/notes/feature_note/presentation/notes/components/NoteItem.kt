@@ -59,7 +59,7 @@ fun NoteItem(
             }
         }
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
                 .padding(end = 32.dp)
@@ -71,7 +71,7 @@ fun NoteItem(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = note.content,
                 style = MaterialTheme.typography.body1,
@@ -86,7 +86,8 @@ fun NoteItem(
         ) {
             Icon(
                 imageVector = Icons.Default.Delete,
-                contentDescription = "Delete Note"
+                contentDescription = "Delete Note",
+                tint = MaterialTheme.colors.onSurface
             )
         }
     }
